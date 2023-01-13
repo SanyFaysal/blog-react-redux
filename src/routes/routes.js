@@ -1,5 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
 import BlogDetails from '../components/Blog/BlogDetails';
+import AddBlog from '../components/Dashboard/AddBlog';
+
+import BlogList from '../components/Dashboard/BlogList';
+import Dashboard from '../layout/Dashboard';
 import Main from '../layout/Main';
 import Home from '../pages/Home';
 import ReadingHistory from '../pages/ReadingHistory';
@@ -36,30 +40,27 @@ const routes = createBrowserRouter([
           </div>
         ),
       },
-      // {
-      //   path: "top-rated",
-      //   element: <TopRated />,
-      // },
-      // {
-      //   path: "cart",
-      //   element: <Cart />,
-      // },
     ],
   },
-  // {
-  //   path: "/dashboard",
-  //   element: <Dashboard />,
-  //   children: [
-  //     {
-  //       path: "/dashboard",
-  //       element: <ProductList />,
-  //     },
-  //     {
-  //       path: "add-product",
-  //       element: <AddProduct />,
-  //     },
-  //   ],
-  // },
+  {
+    path: '/dashboard',
+    element: <Dashboard />,
+    children: [
+      {
+        path: '/dashboard',
+        element: <BlogList />,
+      },
+      {
+        path: 'blogList',
+        element: <BlogList />,
+      },
+
+      {
+        path: 'addBlog',
+        element: <AddBlog />,
+      },
+    ],
+  },
 ]);
 
 export default routes;
