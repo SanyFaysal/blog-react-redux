@@ -20,7 +20,7 @@ const BlogList = () => {
             <th>Blog Title</th>
             <th>Details</th>
             <th>Posted by</th>
-
+            <th>Publish</th>
             <th className="text-center">Actions</th>
           </tr>
         </thead>

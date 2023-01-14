@@ -3,6 +3,7 @@ import { MdArrowBackIos } from 'react-icons/md';
 
 import { Link, Outlet } from 'react-router-dom';
 import DashNav from '../components/Dashboard/DashNav';
+import DetailsModal from '../components/Dashboard/DetailsModal';
 
 const Dashboard = () => {
   return (
@@ -21,6 +22,7 @@ const Dashboard = () => {
         <DashNav />
         <div className="col-span-5 mx-2 mt-5">
           <Outlet />
+          <DetailsModal />
         </div>
       </div>
     </div>

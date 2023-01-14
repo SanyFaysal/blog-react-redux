@@ -6,6 +6,7 @@ export const initialState = {
   blogTitle: '',
   blogType: '',
   blogTags: [],
+  postedBy: 'Admin',
   blogDetails: '',
 };
 export const addBlogReducer = (state, action) => {

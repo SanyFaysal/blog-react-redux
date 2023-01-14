@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Blog from '../components/Blog/Blog';
 import BlogTag from '../components/Blog/BlogTag';
+import fetchBlog from '../redux/thunk/fetchBlog';
 const tags = [
   'Programming',
   'Web Development',
@@ -10,6 +12,12 @@ const tags = [
 ];
 
 const Home = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchBlog());
+  }, []);
+  const state = useSelector((state) => state);
+  const blogs = state?.blog?.blogs;
   return (
     <div className=" mt-6  mx-16">
       <div className="flex justify-between align-center my-7  ">
@@ -36,12 +44,9 @@ const Home = () => {
         </div>
       </div>
       <div className="grid lg:grid-cols-3 grid-cols-1 gap-8 ">
-        <Blog />
-        <Blog />
-        <Blog />
-        <Blog />
-        <Blog />
-        <Blog />
+        {blogs.map((blog) => (
+          <Blog key={blog._id} blog={blog} />
+        ))}
       </div>
     </div>
   );

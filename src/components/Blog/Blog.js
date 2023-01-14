@@ -1,25 +1,20 @@
 import React from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
 import { Link } from 'react-router-dom';
-const Blog = () => {
+const Blog = ({ blog }) => {
   return (
-    <div className=" border p-5 bg-slate-100 rounded shadow-lg  ">
-      <img
-        src="https://intellipaat.com/blog/wp-content/uploads/2020/09/Learn-ReactJS-Tutorial-Big.png"
-        alt=""
-      />
-      <h2 className="my-4 text-xl font-semibold ">
-        Why Should we learn react in 2023 ?{' '}
-      </h2>
-      <p className="mb-2">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-        consequatur quisquam dignissimos ratione ullam reprehenderit? Itaque
-        facere perferendis voluptate delectus....
-      </p>
+    <div className="p-5  0 rounded shadow  ">
+      <div className="h-[80%]">
+        <h2 className=" text-2xl font-bold mb-2">{blog.blogTitle}</h2>
+        <p className="mb-2">{blog.blogDetails.slice(0, 150)}...</p>
+      </div>
 
-      <div className="flex justify-end">
+      <div className="flex justify-between items-center">
+        <p className="text-sm opacity-50 font-semibold">
+          Posted By : {blog?.postedBy}
+        </p>
         <Link to="/blogDetails/1">
-          <button className="inline-block  hover:bg-gray-200 duration-500 px-3  mt-[2px] rounded-full py-1">
+          <button className="inline-block  hover:bg-slate-100 duration-500 px-3  rounded-full py-1">
             Read More <IoIosArrowForward className="inline" />
           </button>
         </Link>
